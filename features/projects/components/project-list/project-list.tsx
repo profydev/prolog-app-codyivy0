@@ -17,9 +17,11 @@ export function ProjectList() {
   return (
     <ul className={styles.list}>
       {data?.map((project) => (
-        <li key={project.id}>
-          <ProjectCard project={project} />
-        </li>
+        <>
+          <li key={project.id}>
+            <ProjectCard project={project} />
+          </li>
+        </>
       ))}
     </ul>
   );

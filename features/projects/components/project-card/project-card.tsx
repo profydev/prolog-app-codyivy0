@@ -20,10 +20,13 @@ const statusColors = {
   [ProjectStatus.stable]: BadgeColor.success,
   [ProjectStatus.warning]: BadgeColor.warning,
   [ProjectStatus.critical]: BadgeColor.error,
+  [ProjectStatus.error]: BadgeColor.error,
+  [ProjectStatus.info]: BadgeColor.gray,
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { name, language, numIssues, numEvents24h, status } = project;
+  console.log(project);
 
   return (
     <div className={styles.container}>
