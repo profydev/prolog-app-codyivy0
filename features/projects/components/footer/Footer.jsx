@@ -1,7 +1,7 @@
 import { version } from "package.json";
 import styles from "./footer.module.scss";
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className={styles.footer}>
       <p className={styles.version}>Version:{version}</p>
@@ -16,4 +16,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;
