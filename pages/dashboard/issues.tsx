@@ -1,5 +1,6 @@
 import { PageContainer } from "@features/layout";
 import { IssueList } from "@features/issues";
+
 import type { NextPage } from "next";
 
 const IssuesPage: NextPage = () => {
