@@ -2,7 +2,7 @@
 import Head from "next/head";
 import { SidebarNavigation } from "../sidebar-navigation";
 import styles from "./page-container.module.scss";
-import Footer from "@features/projects/components/footer/footer";
+import Footer from "@features/projects/components/footer/Footer";
 
 type PageContainerProps = {
   children: React.ReactNode;
