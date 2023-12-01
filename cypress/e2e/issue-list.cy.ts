@@ -49,6 +49,17 @@ describe("Issue List", () => {
         });
     });
 
+    it("displays the correct number of events and users", () => {
+      cy.get("main")
+        .find("tbody")
+        .find("tr")
+        .each(($el, index) => {
+          const issue = mockIssues1.items[index];
+          cy.wrap($el).find("#events").contains(issue.numEvents);
+          cy.wrap($el).find("#users").contains(issue.numUsers);
+        });
+    });
+
     it("paginates the data", () => {
       // test first page
       cy.contains("Page 1 of 3");
