@@ -38,5 +38,36 @@ describe("Project List", () => {
             .should("have.attr", "href", "/dashboard/issues");
         });
     });
+    it("displays error message on failure and re-fetches data on retry", () => {
+      // override the intercept to force a network error
+      cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+        forceNetworkError: true,
+      }).as("getProjectsError");
+
+      // reload the page to trigger the error
+      cy.reload();
+
+      cy.contains("There was a problem", { timeout: 10000 }).should(
+        "be.visible",
+      );
+
+      // setup the mock data for the retry
+      cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+        fixture: "projects.json",
+      }).as("getProjectsRetry");
+
+      cy.contains("Try again").click();
+
+      // wait for the retry request to complete
+      cy.wait("@getProjectsRetry");
+
+      // verify the data is displayed
+      cy.get("main")
+        .find("li")
+        .each(($el, index) => {
+          // check that project data is rendered
+          cy.wrap($el).contains(mockProjects[index].name);
+        });
+    });
   });
 });
