@@ -101,7 +101,7 @@ export function SidebarNavigation() {
               onClick={(e) => {
                 e.preventDefault();
                 window.location.href =
-                  "mailto:support@prolog-app.com?subject=Support Request:";
+                  "mailto:support@prolog-app.com?subject=Support Request";
               }}
             />
             <MenuItemButton
