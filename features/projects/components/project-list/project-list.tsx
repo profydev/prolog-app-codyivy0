@@ -3,6 +3,7 @@ import { useGetProjects } from "../../api/use-get-projects";
 import styles from "./project-list.module.scss";
 import { LoadingSpinner } from "@features/projects";
 import { ErrorMessage } from "@features/projects";
+import { Button, ButtonSize, ButtonColor } from "@features/ui";
 
 export function ProjectList() {
   const { data, isLoading, isError, error, refetch } = useGetProjects();
@@ -17,14 +18,19 @@ export function ProjectList() {
   }
 
   return (
-    <ul className={styles.list}>
-      {data?.map((project) => (
-        <>
-          <li key={project.id}>
-            <ProjectCard project={project} />
-          </li>
-        </>
-      ))}
-    </ul>
+    <>
+      <ul className={styles.list}>
+        {data?.map((project) => (
+          <>
+            <li key={project.id}>
+              <ProjectCard project={project} />
+            </li>
+          </>
+        ))}
+      </ul>
+      <Button size={ButtonSize.medium} color={ButtonColor.emptyGray}>
+        Button CTA
+      </Button>
+    </>
   );
 }
