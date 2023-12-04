@@ -21,6 +21,7 @@ describe("Issue List", () => {
     // open issues page
     cy.visit(`http://localhost:3000/dashboard/issues`);
 
+    cy.get("#loadingRing").should("be.visible");
     // wait for request to resolve
     cy.wait(["@getProjects", "@getIssuesPage1"]);
     cy.wait(500);

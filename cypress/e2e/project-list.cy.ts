@@ -5,11 +5,15 @@ describe("Project List", () => {
   beforeEach(() => {
     // setup request mock
     cy.intercept("GET", "https://prolog-api.profy.dev/project", {
+      delay: 2000,
       fixture: "projects.json",
     }).as("getProjects");
 
     // open projects page
     cy.visit("http://localhost:3000/dashboard");
+
+    // Check that loading indicator is visible and rotating
+    cy.get("#loadingRing").should("be.visible");
 
     // wait for request to resolve
     cy.wait("@getProjects");
@@ -38,6 +42,7 @@ describe("Project List", () => {
             .should("have.attr", "href", "/dashboard/issues");
         });
     });
+
     it("displays error message on failure and re-fetches data on retry", () => {
       // override the intercept to force a network error
       cy.intercept("GET", "https://prolog-api.profy.dev/project", {
