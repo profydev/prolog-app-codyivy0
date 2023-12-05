@@ -1,3 +1,6 @@
+@use "@styles/color";
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap";
+
 .button {
   cursor: pointer;
 
@@ -7,12 +10,173 @@
   padding: 0;
   background: transparent;
   line-height: normal;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Inter, sans-serif;
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   appearance: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  min-width: 40px;
+  min-height: 40px;
 
   &::-moz-focus-inner {
     border: 0;
     padding: 0;
   }
+}
+
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* sizes */
+.none {
+  height: 0;
+  width: 0;
+}
+
+.small {
+  height: 36px;
+  min-width: 105px;
+  padding: 8px 14px;
+}
+
+.medium {
+  height: 40px;
+  min-width: 109px;
+  padding: 10px 16px;
+}
+
+.large {
+  height: 44px;
+  min-width: 124px;
+  padding: 10px 18px;
+  font-size: 16px;
+}
+
+.xlarge {
+  height: 48px;
+  min-width: 128px;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+/* colors */
+
+.primary {
+  color: white;
+  background-color: color.$primary-600;
+  box-shadow: 0 1px 2px 0 hsl(220deg 43% 11% / 5%);
+}
+
+.primary:focus {
+  box-shadow: 0 0 0 4px hsl(267deg 100% 96% / 100%);
+}
+
+.primary:disabled {
+  background-color: color.$primary-200;
+  cursor: not-allowed;
+}
+
+.primary:not(:disabled):hover {
+  background-color: color.$primary-700;
+}
+
+.secondary {
+  color: color.$primary-700;
+  background-color: color.$primary-50;
+  box-shadow: 0 1px 2px 0 hsl(220deg 43% 11% / 5%);
+}
+
+.secondary:focus {
+  box-shadow: 0 0 0 4px hsl(267deg 100% 96% / 100%);
+}
+
+.secondary:disabled {
+  background-color: color.$primary-25;
+  color: color.$primary-300;
+  cursor: not-allowed;
+}
+
+.secondary:not(:disabled):hover {
+  background-color: color.$primary-100;
+}
+
+.gray {
+  color: color.$gray-700;
+  background-color: white;
+  border: 1px solid color.$gray-300;
+  box-shadow: 0 1px 2px 0 hsl(220deg 43% 11% / 5%);
+}
+
+.gray:focus {
+  box-shadow: 0 0 0 4px hsl(220deg 22% 96% / 100%);
+}
+
+.gray:disabled {
+  color: color.$gray-300;
+  border: 1px solid color.$gray-200;
+  cursor: not-allowed;
+}
+
+.gray:not(:disabled):hover {
+  background-color: color.$gray-50;
+}
+
+.empty {
+  color: color.$primary-700;
+  background-color: transparent;
+}
+
+.empty:disabled {
+  color: color.$gray-300;
+  cursor: not-allowed;
+}
+
+.empty:not(:disabled):hover {
+  color: color.$primary-700;
+  background-color: color.$primary-50;
+}
+
+.emptyWhite {
+  color: white;
+  background-color: transparent;
+}
+
+.emptyGray {
+  color: color.$gray-500;
+  background-color: transparent;
+}
+
+.emptyGray:disabled {
+  color: color.$gray-300;
+  cursor: not-allowed;
+}
+
+.emptyGray:not(:disabled):hover {
+  color: color.$gray-600;
+  background-color: color.$gray-50;
+}
+
+.error {
+  color: white;
+  background-color: color.$error-600;
+}
+
+.error:focus {
+  box-shadow: 0 0 0 4px hsl(4deg 95% 94% / 100%);
+}
+
+.error:disabled {
+  background-color: color.$error-200;
+  cursor: not-allowed;
+}
+
+.error:not(:disabled):hover {
+  background-color: color.$error-700;
 }
