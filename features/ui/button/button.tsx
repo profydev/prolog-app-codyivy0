@@ -19,25 +19,24 @@ export enum ButtonColor {
   error = "error",
 }
 
-export enum ButtonState {
-  default = "default",
-  hover = "hover",
-  focused = "focused",
-  disabled = "disabled",
+export enum IconPosition {
+  leading = "leading",
+  trailing = "trailing",
 }
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   color?: ButtonColor;
-  state?: ButtonState;
   icon?: JSX.Element;
+  iconPosition?: IconPosition;
 }
 
 export function Button({
   size = ButtonSize.none,
   color = ButtonColor.emptyWhite,
-  state = ButtonState.default,
   icon,
+  iconPosition,
   ...props
 }: ButtonProps) {
   return (
@@ -47,13 +46,18 @@ export function Button({
         styles.button,
         styles[size],
         styles[color],
-        styles[state],
         props.className,
       )}
-      disabled={true}
     >
-      {icon && <span className={styles.icon}>{icon}</span>}
-      {props.children}
+      <span className={styles.buttonContent}>
+        {icon && iconPosition === IconPosition.leading && (
+          <span className={styles.icon}>{icon}</span>
+        )}
+        {props.children}
+        {icon && iconPosition === IconPosition.trailing && (
+          <span className={styles.icon}>{icon}</span>
+        )}
+      </span>
     </button>
   );
 }

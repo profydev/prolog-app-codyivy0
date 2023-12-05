@@ -1,1 +1,3 @@
-export { Button, ButtonSize, ButtonColor, ButtonState } from "./button";
+export { Button, ButtonSize, ButtonColor, IconPosition } from "./button";
+
+export { IconTest } from "./icon";

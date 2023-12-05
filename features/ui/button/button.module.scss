@@ -18,6 +18,8 @@
   appearance: none;
   border-radius: 8px;
   box-sizing: border-box;
+  min-width: 40px;
+  min-height: 40px;
 
   &::-moz-focus-inner {
     border: 0;
@@ -25,8 +27,11 @@
   }
 }
 
-.button:focus {
-  outline: none;
+.buttonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 /* sizes */
