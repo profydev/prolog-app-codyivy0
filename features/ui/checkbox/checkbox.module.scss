@@ -1,0 +1,63 @@
+@use "@styles/color";
+
+.checkbox {
+  appearance: none;
+  appearance: none;
+  appearance: none;
+  border: 1px solid color.$gray-300;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  border: 1px solid color.$primary-600;
+  color: color.$primary-600;
+}
+
+.checkbox:checked::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("/icons/checkmark.svg") no-repeat center center;
+  background-size: 70%;
+}
+
+.checkbox:indeterminate {
+  border: 1px solid color.$primary-600;
+  color: color.$primary-600;
+}
+
+.checkbox:indeterminate::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/icons/indeterminate.svg") no-repeat center center;
+  background-size: 70%;
+}
+
+.small {
+  height: 16px;
+  width: 16px;
+}
+
+.medium {
+  height: 20px;
+  width: 20px;
+}
+
+.label {
+  margin-left: 10px;
+  font-size: 14px;
+  color: color.$gray-700;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
