@@ -1,6 +1,12 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { Button, ButtonColor, ButtonProps, IconPosition } from "./button";
+import {
+  Button,
+  ButtonColor,
+  ButtonProps,
+  ButtonSize,
+  IconPosition,
+} from "./button";
 import { IconTest } from "./icon";
 
 export default {
@@ -22,6 +28,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: "Default Button",
   color: ButtonColor.primary,
+  size: ButtonSize.small,
 };
 Default.parameters = {
   viewMode: "docs",
@@ -29,9 +36,11 @@ Default.parameters = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
+  children: "Default Button",
   icon: <IconTest />,
   iconPosition: IconPosition.leading,
   color: ButtonColor.primary,
+  size: ButtonSize.small,
 };
 WithIcon.parameters = {
   viewMode: "docs",

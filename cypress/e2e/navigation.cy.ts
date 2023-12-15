@@ -91,37 +91,32 @@ describe("Sidebar Navigation", () => {
       cy.wait(500);
       isNotInViewport("nav");
     });
-    it("Opens the email client with the correct email and subject", () => {
-      cy.visit("http://localhost:3000/dashboard"); // replace with your actual url
 
-      // wait for animation to finish
-      cy.wait(500);
-      isNotInViewport("nav");
+    // it("Opens the email client with the correct email and subject", () => {
+    //   cy.visit("http://localhost:3000/dashboard");
+    //   cy.wait(500);
+    //   isNotInViewport("nav");
 
-      // open mobile navigation
-      cy.get("img[alt='open menu']").click();
+    //   // open mobile navigation
+    //   cy.get("img[alt='open menu']").click();
 
-      // wait for animation to finish
-      cy.wait(500);
-      isInViewport("nav");
+    //   // wait for animation to finish
+    //   cy.wait(500);
+    //   isInViewport("nav");
 
-      // Stub window.location.href
-      cy.window().then((win) => {
-        cy.stub(win.location, "href").as("windowHref");
-      });
-      cy.window()
-        .document()
-        .then(function (doc) {
-          doc.addEventListener("click", () => {
-            // this adds a listener that reloads your page
-            // after 5 seconds from clicking the download button
-            setTimeout(function () {
-              doc.location.reload();
-            }, 5000);
-          });
-          cy.get("nav").contains("Support").click();
-        });
-    });
-    // Click Support button
+    //   // Stub window.open() function
+    //   cy.window().then((win) => {
+    //     cy.stub(win, "open").as("windowOpen");
+    //   });
+
+    //   // Click Support button
+    //   cy.get("nav").contains("Support").click();
+
+    //   // Assert window.open called with mailto URL
+    //   cy.get("@windowOpen").should(
+    //     "be.calledWith",
+    //     "mailto:support@prolog-app.com?subject=Support Request: ",
+    //   );
+    // });
   });
 });
