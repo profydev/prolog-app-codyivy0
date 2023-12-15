@@ -28,7 +28,11 @@ export function ProjectList() {
           </>
         ))}
       </ul>
-      <Checkbox size={CheckboxSize.medium} indeterminate={true} label="Label" />
+      <Checkbox
+        size={CheckboxSize.medium}
+        disabled={true}
+        indeterminate={true}
+      />
     </>
   );
 }

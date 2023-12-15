@@ -7,7 +7,7 @@ export enum CheckboxSize {
   medium = "medium",
 }
 
-interface CheckboxProps
+export interface CheckboxProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
   size?: CheckboxSize;
   indeterminate?: boolean;

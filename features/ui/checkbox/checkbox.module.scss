@@ -2,17 +2,42 @@
 
 .checkbox {
   appearance: none;
-  appearance: none;
-  appearance: none;
   border: 1px solid color.$gray-300;
   border-radius: 4px;
   position: relative;
   cursor: pointer;
+  outline: none;
+}
+
+.label {
+  margin-left: 10px;
+  font-size: 14px;
+  color: color.$gray-700;
+}
+
+.checkbox:hover {
+  border: 1px solid color.$primary-600;
+}
+
+.checkbox:focus {
+  box-shadow: 0 0 0 4px rgb(244 235 255 / 100%);
+  border: 1px solid color.$primary-300;
+}
+
+.checkbox:disabled {
+  background-color: color.$gray-100;
+  border: 1px solid color.$gray-200;
+}
+
+.checkbox:disabled + .label {
+  color: color.$gray-300;
+  cursor: not-allowed;
 }
 
 .checkbox:checked {
   border: 1px solid color.$primary-600;
   color: color.$primary-600;
+  background-color: color.$primary-50;
 }
 
 .checkbox:checked::before {
@@ -27,6 +52,7 @@
 .checkbox:indeterminate {
   border: 1px solid color.$primary-600;
   color: color.$primary-600;
+  background-color: color.$primary-50;
 }
 
 .checkbox:indeterminate::before {
@@ -40,6 +66,14 @@
   background-size: 70%;
 }
 
+.checkbox:indeterminate:disabled {
+  background-color: color.$gray-100;
+  border: 1px solid color.$gray-200;
+  cursor: not-allowed;
+  filter: hue-rotate(-200deg);
+  opacity: 0.5;
+}
+
 .small {
   height: 16px;
   width: 16px;
@@ -50,14 +84,16 @@
   width: 20px;
 }
 
-.label {
-  margin-left: 10px;
-  font-size: 14px;
-  color: color.$gray-700;
-}
-
 .flex {
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.checkbox:checked:disabled {
+  background-color: color.$gray-100;
+  border: 1px solid color.$gray-200;
+  cursor: not-allowed;
+  filter: hue-rotate(-200deg);
+  opacity: 0.5;
 }
