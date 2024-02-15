@@ -3,7 +3,6 @@ import { useGetProjects } from "../../api/use-get-projects";
 import styles from "./project-list.module.scss";
 import { LoadingSpinner } from "@features/projects";
 import { ErrorMessage } from "@features/projects";
-import { Checkbox, CheckboxSize } from "@features/ui";
 
 export function ProjectList() {
   const { data, isLoading, isError, error, refetch } = useGetProjects();
@@ -28,11 +27,6 @@ export function ProjectList() {
           </>
         ))}
       </ul>
-      <Checkbox
-        size={CheckboxSize.medium}
-        disabled={true}
-        indeterminate={true}
-      />
     </>
   );
 }

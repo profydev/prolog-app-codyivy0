@@ -1,0 +1,91 @@
+@use "@styles/color";
+
+.selectContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px 14px;
+  width: 320px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid color.$gray-300;
+  box-sizing: border-box;
+  gap: 8px;
+}
+
+.selectContainer .empty {
+  color: color.$gray-500;
+}
+
+.errorContainer {
+  border: 1px solid red !important;
+}
+
+.selectContainer .selectBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  outline: none;
+}
+
+.selectContent {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 12px 16px -4px rgb(16 24 40 / 10%);
+  border-radius: 8px;
+  color: black;
+}
+
+.option {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+
+  &:hover {
+    background-color: color.$primary-25;
+  }
+}
+
+.focused {
+  box-shadow: 0 0 0 4px rgb(244 235 255 / 100%);
+  border: 1px solid color.$primary-300;
+}
+
+.disabled {
+  cursor: not-allowed !important;
+  pointer-events: none;
+  background-color: color.$gray-50;
+}
+
+.label {
+  font-size: 14px;
+  color: color.$gray-700;
+  font-weight: 500;
+}
+
+.hint {
+  font-size: 14px;
+  color: color.$gray-500;
+}
+
+.error {
+  font-size: 14px;
+  font-weight: 400;
+  color: color.$error-500;
+}
+
+.personIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.flip {
+  transform: scaleY(-1);
+}
