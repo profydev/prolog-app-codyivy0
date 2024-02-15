@@ -3,7 +3,6 @@ import { useGetProjects } from "../../api/use-get-projects";
 import styles from "./project-list.module.scss";
 import { LoadingSpinner } from "@features/projects";
 import { ErrorMessage } from "@features/projects";
-import { Select } from "@features/ui";
 
 export function ProjectList() {
   const { data, isLoading, isError, error, refetch } = useGetProjects();
@@ -28,12 +27,6 @@ export function ProjectList() {
           </>
         ))}
       </ul>
-      <Select
-        icon="/icons/users.svg"
-        label="This is a label"
-        hint="This is a hint"
-        error="This is an error"
-      />
     </>
   );
 }
