@@ -1,7 +1,7 @@
 // Checkbox.stories.tsx
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import { Checkbox, CheckboxProps, CheckboxSize } from "./checkbox"; // Adjust the import path based on your project structure
+import { Checkbox, CheckboxProps, CheckboxSize } from "./checkbox";
 
 export default {
   title: "UI/Checkbox",

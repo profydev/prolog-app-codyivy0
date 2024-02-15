@@ -26,7 +26,6 @@ const statusColors = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { name, language, numIssues, numEvents24h, status } = project;
-  console.log(project);
 
   return (
     <div className={styles.container}>
